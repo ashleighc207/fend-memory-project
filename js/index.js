@@ -41,6 +41,10 @@ function resetBoard(){
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
 	popUp.classList.add('display-none');
+	starOne.classList.add('display-none');
+	starTwo.classList.add('display-none');
+	starThree.classList.add('display-none');
+
 }
 
 // check for match/no match when a card is clicked
