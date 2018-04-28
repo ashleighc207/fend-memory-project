@@ -149,6 +149,8 @@ function notMatching() {
 
 }
 
+// display pop up content when winning
+
 function popUpModal() {
 	popUp.innerHTML = 
 	`<h1 class="heading-one">Congratulations!</h1>
@@ -163,6 +165,7 @@ function popUpModal() {
 	 `;
 }
 
+// count and display time
 
 function timer() {
 	seconds++;
@@ -173,6 +176,7 @@ function timer() {
 	timerContent.innerHTML = `<span class="time">Time: ${minutes}&nbsp;:&nbsp;${seconds}</span>`;
 }
 
+// start timer
 
 function timerStart() {
 	clearInterval(time);
@@ -181,10 +185,13 @@ function timerStart() {
 	time = setInterval(timer, 1000);
 }
 
+// end timer
+
 function timerEnd() {
 	clearInterval(time);
 }
 
+// check if a user has won
 
 function winCheck() {
 	if(matches === 8){

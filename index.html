@@ -1,91 +1,88 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Matching Game</title>
-    <meta name="description" content="A simple memory matching game where the object is to match the most cards in the least amount of moves.">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-</head>
-<body>
-
-    <div class="container">
-        <header>
-            <h1 class="header">Matching Game</h1>
-        </header>
-
-        <section class="score-panel">
-        	<div>
-        	<ul class="stars">
-        		<li><i class="fas fa-star star-one"></i></li>
-        		<li><i class="fas fa-star star-two"></i></li>
-        		<li><i class="fas fa-star star-three"></i></li>
-        	</ul>
-        	<span class="moves">0 Moves</span> 
-        	</div>
-            <div class="restart">
-            	<span class="time">Time: 0&nbsp;:&nbsp;0</span>
-        		<i class="fas fa-redo" onclick="resetBoard()"></i>
-        	</div>
-        </section>
-        <ul class="deck">
-        	<div class="pop-up-modal display-none">
-        		
-        	</div>
-            <li class="card animated">
-                <i class="fas fa-gem"></i>
-            </li>
-            <li class="card animated">
-                <i class="fas fa-paper-plane"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card animated">
-                <i class="fas fa-gem"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card animated">
-                <i class="fas fa-paper-plane"></i>
-            </li>
-            <li class="card animated">
-                <i class="fa fa-cube"></i>
-            </li>
-        </ul>
-    </div>
-
-    <script src="./js/index.js"></script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>Matching Game</title>
+		<meta name="description" content="A simple memory matching game where the object is to match the most cards in the least amount of moves.">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" href="./css/styles.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1 class="header">Matching Game</h1>
+			</header>
+			<section class="score-panel">
+				<div>
+					<ul class="stars">
+						<li><i class="fas fa-star star-one"></i></li>
+						<li><i class="fas fa-star star-two"></i></li>
+						<li><i class="fas fa-star star-three"></i></li>
+					</ul>
+					<span class="moves">0 Moves</span>
+				</div>
+				<div class="restart">
+					<span class="time">Time: 0&nbsp;:&nbsp;0</span>
+					<i class="fas fa-redo" onclick="resetBoard()"></i>
+				</div>
+			</section>
+			<ul class="deck">
+				<div class="pop-up-modal display-none">
+					
+				</div>
+				<li class="card animated">
+					<i class="fas fa-gem"></i>
+				</li>
+				<li class="card animated">
+					<i class="fas fa-paper-plane"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-anchor"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-bolt"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-cube"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-anchor"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-leaf"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-bicycle"></i>
+				</li>
+				<li class="card animated">
+					<i class="fas fa-gem"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-bomb"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-leaf"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-bomb"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-bolt"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-bicycle"></i>
+				</li>
+				<li class="card animated">
+					<i class="fas fa-paper-plane"></i>
+				</li>
+				<li class="card animated">
+					<i class="fa fa-cube"></i>
+				</li>
+			</ul>
+		</div>
+		<script src="./js/index.js"></script>
+	</body>
 </html>
