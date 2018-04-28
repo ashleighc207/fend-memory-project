@@ -38,7 +38,7 @@ h1 {
 
 .deck {
     width: 660px;
-    min-height: 680px;
+    min-height: 650px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -71,13 +71,13 @@ h1 {
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 60px;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
+    font-size: 60px;
 }
 
 /*
@@ -120,7 +120,7 @@ h1 {
 }
 .pop-up-modal {
 	width: 600px;
-	height: 620px;
+	height: 590px;
 	position: absolute;
 	z-index: 2;
 	background-color: #262529;
@@ -132,6 +132,7 @@ h1 {
 	font-weight: 500;
 	color: white;
 }
+
 .heading-four {
 	font-size: 20px;
 }
@@ -140,6 +141,9 @@ h1 {
 }
 .text-white {
 	color: white;
+}
+.header {
+	font-size: 35px;
 }
 
 @media screen and (max-width: 670px) {
@@ -169,7 +173,10 @@ h1 {
 		height:  80px;
 	}
 	.deck .card.show {
-		font-size:  60px;
+		font-size:  50px;
+	}
+	.deck .card.match {
+		font-size:  50px;
 	}
 	.pop-up-modal {
 	width: 390px;
@@ -177,7 +184,7 @@ h1 {
 }
 }
 @media screen and (max-width: 450px){
-		.deck {
+	.deck {
 		width: 380px;
 		min-height: 450px;
 		padding: 15px
@@ -188,12 +195,15 @@ h1 {
 		height:  80px;
 	}
 	.deck .card.show {
-		font-size:  60px;
+		font-size:  50px;
+	}
+	.deck .card.match {
+		font-size:  50px;
 	}
 	.pop-up-modal {
 	width: 350px;
 	height: 410px;
-}
+	}
 }
 
 
