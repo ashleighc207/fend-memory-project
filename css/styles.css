@@ -199,12 +199,12 @@ h1 {
 }
 @media screen and (max-width: 450px){
 	.deck {
-		width: 380px;
+		width: 360px;
 		min-height: 450px;
 		padding: 15px;
 	}
 	.score-panel {
-		max-width: 380px;
+		max-width: 360px;
 	}
 	.deck .card {
 		width: 80px;
@@ -217,7 +217,7 @@ h1 {
 		font-size:  50px;
 	}
 	.pop-up-modal {
-	width: 350px;
+	width: 330px;
 	height: 410px;
 	}
 }
