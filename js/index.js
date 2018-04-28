@@ -12,7 +12,13 @@ let starTwo = document.querySelector('.star-two');
 let starThree = document.querySelector('.star-three');	
 let movesCounter = document.querySelector('.moves');
 let popUp = document.querySelector('.pop-up-modal');
+let timerContent = document.querySelector('.time');
 let stars = [];
+let time = 0;
+let minutes = 0;
+let seconds = 0;
+
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -38,6 +44,7 @@ function shuffle(array) {
 function resetBoard(){
 	let resetBtn = document.querySelector('.restart');
 	moves = 0;
+	timerEnd();
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
 	popUp.classList.add('display-none');
@@ -56,6 +63,7 @@ function cardClick(){
 	if(clickedCards.length === 2){
 		moves++;
 		if(moves === 1){
+			timerStart();
 			movesCounter.innerHTML = `<span class="moves green">${moves} Move</span>`;
 		} else if(moves >= 2 && moves <= 25) {
 			movesCounter.innerHTML = `<span class="moves green">${moves} Moves</span>`;
@@ -142,7 +150,7 @@ function popUpModal() {
 	`<h1 class="heading-one">Congratulations!</h1>
 	<h4 class="heading-four">Your stats</h4>
 	<p class="subhead">Moves:</p><p class="text-white">${moves}</p>
-	<p class="subhead">Time:</p>
+	<p class="subhead">Time:</p><p>${minutes}:${seconds}
 	<p class="subhead">Rating:</p><p class="stars-modal text-white">${stars}</p>
 	<p class="text-white">Would you like to play again?</p>
 	<div class="restart" onclick="resetBoard()">
@@ -151,8 +159,32 @@ function popUpModal() {
 	 `;
 }
 
+
+function timer() {
+	seconds++;
+	if(seconds === 60){
+		minutes++;
+		seconds = 0;
+	}
+	timerContent.innerHTML = `<span class="time">Time: ${minutes}&nbsp;:&nbsp;${seconds}</span>`;
+}
+
+
+function timerStart() {
+	clearInterval(time);
+	seconds = 0;
+	minutes = 0;
+	time = setInterval(timer, 1000);
+}
+
+function timerEnd() {
+	clearInterval(time);
+}
+
+
 function winCheck() {
 	if(matches === 8){
+		timerEnd();
 		addRating(moves);
 		popUpModal();
 		popUp.classList.remove('display-none');
