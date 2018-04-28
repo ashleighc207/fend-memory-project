@@ -106,3 +106,6 @@ h1 {
     float: right;
     cursor: pointer;
 }
+.display-none {
+	display: none;
+}

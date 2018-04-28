@@ -7,6 +7,9 @@ let clickedCards = [];
 let gameBoard = document.querySelector('.deck');
 let moves = 0;
 let matches = 0;
+let starOne = document.querySelector('.star-one');
+let starTwo = document.querySelector('.star-two');
+let starThree = document.querySelector('.star-three');	
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -79,6 +82,21 @@ function notMatching() {
 		clickedCards[1].classList.remove('open', 'show');
 		clickedCards = [];
 	}, 500);
+}
+
+// determine how many stars should be visible
+
+function addRating(num){
+	if(num >= 7 && num <= 25){
+		starOne.classList.remove('display-none');
+		starTwo.classList.remove('display-none');
+		starThree.classList.remove('display-none');
+	} else if(num >= 26 && num <= 35){
+		starOne.classList.remove('display-none');
+		starTwo.classList.remove('display-none');
+	} else if(num >= 36){
+		starOne.classList.remove('display-none');
+	}
 }
 /*
  * set up the event listener for a card. If a card is clicked:
