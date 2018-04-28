@@ -63,9 +63,9 @@ function cardClick(){
 		if(moves === 1){
 			timerStart();
 			movesCounter.innerHTML = `<span class="moves green">${moves} Move</span>`;
-		} else if(moves >= 2 && moves <= 21) {
+		} else if(moves >= 2 && moves <= 20) {
 			movesCounter.innerHTML = `<span class="moves green">${moves} Moves</span>`;
-		} else if(moves >= 22 && moves <= 30){
+		} else if(moves >= 21 && moves <= 29){
 			movesCounter.innerHTML = `<span class="moves gold">${moves} Moves</span>`;
 		} else {
 			movesCounter.innerHTML = `<span class="moves red">${moves} Moves</span>`;
@@ -98,13 +98,7 @@ newGame();
 // determine how many stars should be visible
 
 function addRating(num){
-	if(num >= 7 && num <= 25){
-		stars.push(starOne.outerHTML + starTwo.outerHTML + starThree.outerHTML);
-	} else if(num >= 26 && num <= 35){
-		stars.push(starOne.outerHTML + starTwo.outerHTML);
-	} else if(num >= 36){
-		stars.push(starOne.outerHTML);
-	}
+	stars.push(starOne.outerHTML + starTwo.outerHTML + starThree.outerHTML);
 }
 
 function checkRating(num){
