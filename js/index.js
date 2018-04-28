@@ -79,6 +79,7 @@ function cardClick(){
 			notMatching();
 		}
 	}
+	checkRating(moves);
 }
 
 // reset and randomize cards for new game
@@ -100,19 +101,29 @@ newGame();
 
 function addRating(num){
 	if(num >= 7 && num <= 25){
-		starOne.classList.remove('display-none');
-		starTwo.classList.remove('display-none');
-		starThree.classList.remove('display-none');
 		stars.push(starOne.outerHTML + starTwo.outerHTML + starThree.outerHTML);
 	} else if(num >= 26 && num <= 35){
-		starOne.classList.remove('display-none');
-		starTwo.classList.remove('display-none');
 		stars.push(starOne.outerHTML + starTwo.outerHTML);
 	} else if(num >= 36){
-		starOne.classList.remove('display-none');
 		stars.push(starOne.outerHTML);
 	}
 }
+
+function checkRating(num){
+	if(num >= 20 && num <= 25){
+		starOne.classList.remove('fas', 'fa-star');
+		starOne.classList.add('far', 'fa-star');
+	} else if(num >= 26 && num <= 30){
+		starTwo.classList.remove('fas', 'fa-star');
+		starTwo.classList.add('far', 'fa-star');
+	} else if(num >= 31){
+		starThree.classList.remove('fas', 'fa-star');
+		starThree.classList.add('far', 'fa-star');
+	}
+}
+
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -150,7 +161,7 @@ function popUpModal() {
 	`<h1 class="heading-one">Congratulations!</h1>
 	<h4 class="heading-four">Your stats</h4>
 	<p class="subhead">Moves:</p><p class="text-white">${moves}</p>
-	<p class="subhead">Time:</p><p>${minutes}:${seconds}
+	<p class="subhead">Time:</p><p class="text-white">${minutes}&nbsp;:&nbsp;${seconds}</p>
 	<p class="subhead">Rating:</p><p class="stars-modal text-white">${stars}</p>
 	<p class="text-white">Would you like to play again?</p>
 	<div class="restart" onclick="resetBoard()">
