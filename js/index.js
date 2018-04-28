@@ -11,6 +11,8 @@ let starOne = document.querySelector('.star-one');
 let starTwo = document.querySelector('.star-two');
 let starThree = document.querySelector('.star-three');	
 let movesCounter = document.querySelector('.moves');
+let popUp = document.querySelector('.pop-up-modal');
+let stars = [];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -38,6 +40,7 @@ function resetBoard(){
 	moves = 0;
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
+	popUp.classList.add('display-none');
 }
 
 // check for match/no match when a card is clicked
@@ -88,11 +91,14 @@ function addRating(num){
 		starOne.classList.remove('display-none');
 		starTwo.classList.remove('display-none');
 		starThree.classList.remove('display-none');
+		stars.push(starOne.outerHTML + starTwo.outerHTML + starThree.outerHTML);
 	} else if(num >= 26 && num <= 35){
 		starOne.classList.remove('display-none');
 		starTwo.classList.remove('display-none');
+		stars.push(starOne.outerHTML + starTwo.outerHTML);
 	} else if(num >= 36){
 		starOne.classList.remove('display-none');
+		stars.push(starOne.outerHTML);
 	}
 }
 /*
@@ -127,8 +133,24 @@ function notMatching() {
 	}, 500);
 }
 
+function popUpModal() {
+	popUp.innerHTML = 
+	`<h1 class="heading-one">Congratulations!</h1>
+	<h4 class="heading-four">Your stats</h4>
+	<p class="subhead">Moves:</p><p class="text-white">${moves}</p>
+	<p class="subhead">Time:</p>
+	<p class="subhead">Rating:</p><p class="stars-modal text-white">${stars}</p>
+	<p class="text-white">Would you like to play again?</p>
+	<div class="restart" onclick="resetBoard()">
+    <i class="fas fa-redo text-white"></i>
+  </div>
+	 `;
+}
+
 function winCheck() {
 	if(matches === 8){
-			addRating(moves);
+		addRating(moves);
+		popUpModal();
+		popUp.classList.remove('display-none');
 	}
 }

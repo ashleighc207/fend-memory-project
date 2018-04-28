@@ -118,7 +118,27 @@ h1 {
 .red {
 	color: red;
 }
-
-
-
+.pop-up-modal {
+	width: 600px;
+	height: 600px;
+	position: absolute;
+	z-index: 2;
+	background-color: #262529;
+	opacity: .99;
+	border-radius: 5px;
+	text-align: center;
+}
+.heading-four, .subhead, .heading-one {
+	font-weight: 500;
+	color: white;
+}
+.heading-four {
+	font-size: 20px;
+}
+.subhead {
+	font-size: 18px;
+}
+.text-white {
+	color: white;
+}
 
