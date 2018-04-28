@@ -10,6 +10,7 @@ let matches = 0;
 let starOne = document.querySelector('.star-one');
 let starTwo = document.querySelector('.star-two');
 let starThree = document.querySelector('.star-three');	
+let movesCounter = document.querySelector('.moves');
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -45,6 +46,11 @@ function cardClick(){
 	clickedCards.push(event.target);
 	if(clickedCards.length === 2){
 		moves++;
+		if(moves === 1){
+			movesCounter.innerHTML = `<span class="moves">${moves} Move</span>`;
+		} else {
+			movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
+		}
 		if(clickedCards[0].innerHTML === clickedCards[1].innerHTML){
 			matching();
 		} else {
