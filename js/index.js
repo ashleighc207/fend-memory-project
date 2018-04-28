@@ -38,7 +38,6 @@ function resetBoard(){
 	moves = 0;
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
-
 }
 
 // check for match/no match when a card is clicked
@@ -60,6 +59,7 @@ function cardClick(){
 		}
 		if(clickedCards[0].innerHTML === clickedCards[1].innerHTML){
 			matching();
+			winCheck();
 		} else {
 			notMatching();
 		}
@@ -128,5 +128,7 @@ function notMatching() {
 }
 
 function winCheck() {
-	addRating(moves);
+	if(matches === 8){
+			addRating(moves);
+	}
 }
