@@ -200,7 +200,7 @@ h1 {
 @media screen and (max-width: 450px){
 	.deck {
 		width: 340px;
-		min-height: 400px;
+		min-height: 380px;
 		padding: 15px;
 	}
 	.score-panel {
@@ -217,8 +217,12 @@ h1 {
 		font-size:  45px;
 	}
 	.pop-up-modal {
-	width: 280px;
-	height: 340px;
+	width: 310px;
+	height: 350px;
+	}
+	.subhead, .heading-one, .heading-four {
+		margin: 8px;
+		padding: 0;
 	}
 }
 
