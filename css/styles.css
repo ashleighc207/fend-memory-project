@@ -72,6 +72,8 @@ h1 {
 
 .deck .card.show {
     font-size: 60px;
+    transition-timing-function: ease-in;
+    transition-duration: .2s;
 }
 
 .deck .card.match {

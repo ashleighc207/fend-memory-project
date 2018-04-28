@@ -39,6 +39,7 @@ function shuffle(array) {
 
     return array;
 }
+
 // reset game board when reset icon is clicked
 
 function resetBoard(){
@@ -48,9 +49,6 @@ function resetBoard(){
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
 	popUp.classList.add('display-none');
-	starOne.classList.add('display-none');
-	starTwo.classList.add('display-none');
-	starThree.classList.add('display-none');
 
 }
 
@@ -65,9 +63,9 @@ function cardClick(){
 		if(moves === 1){
 			timerStart();
 			movesCounter.innerHTML = `<span class="moves green">${moves} Move</span>`;
-		} else if(moves >= 2 && moves <= 25) {
+		} else if(moves >= 2 && moves <= 21) {
 			movesCounter.innerHTML = `<span class="moves green">${moves} Moves</span>`;
-		} else if(moves >= 26 && moves <= 35){
+		} else if(moves >= 22 && moves <= 30){
 			movesCounter.innerHTML = `<span class="moves gold">${moves} Moves</span>`;
 		} else {
 			movesCounter.innerHTML = `<span class="moves red">${moves} Moves</span>`;
@@ -110,7 +108,7 @@ function addRating(num){
 }
 
 function checkRating(num){
-	if(num >= 20 && num <= 25){
+	if(num >= 21 && num <= 25){
 		starOne.classList.remove('fas', 'fa-star');
 		starOne.classList.add('far', 'fa-star');
 	} else if(num >= 26 && num <= 30){
@@ -140,9 +138,9 @@ function checkRating(num){
 function matching() {
 	matches++;
 	clickedCards[0].classList.remove('open', 'show');
-	clickedCards[0].classList.add('match');
+	clickedCards[0].classList.add('match', 'pulse');
 	event.target.classList.remove('open', 'show');
-	event.target.classList.add('match');
+	event.target.classList.add('match', 'pulse');
 	clickedCards = [];
 }
 
@@ -153,7 +151,8 @@ function notMatching() {
 		clickedCards[0].classList.remove('open', 'show');
 		clickedCards[1].classList.remove('open', 'show');
 		clickedCards = [];
-	}, 500);
+	}, 600);
+
 }
 
 function popUpModal() {
