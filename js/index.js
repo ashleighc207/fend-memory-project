@@ -56,8 +56,9 @@ function cardClick(){
 // reset and randomize cards for new game
 
 function newGame() {
-	const randomCards = shuffle(cards);
+	const randomCards = shuffle(cardDeck);
 	for(randomCard of randomCards){
+		gameBoard.appendChild(randomCard);
 		randomCard.classList.remove('open','show','match');
 		randomCard.addEventListener('click', cardClick);
 	}
@@ -66,23 +67,6 @@ function newGame() {
 }
 
 newGame();
-
-function matching() {
-	matches++;
-	clickedCards[0].classList.remove('open', 'show');
-	clickedCards[0].classList.add('match');
-	event.target.classList.remove('open', 'show');
-	event.target.classList.add('match');
-	clickedCards = [];
-}
-
-function notMatching() {
-	setTimeout(function(){
-		clickedCards[0].classList.remove('open', 'show');
-		clickedCards[1].classList.remove('open', 'show');
-		clickedCards = [];
-	}, 500);
-}
 
 // determine how many stars should be visible
 
@@ -109,5 +93,27 @@ function addRating(num){
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
+// change styles to matching pair
 
+function matching() {
+	matches++;
+	clickedCards[0].classList.remove('open', 'show');
+	clickedCards[0].classList.add('match');
+	event.target.classList.remove('open', 'show');
+	event.target.classList.add('match');
+	clickedCards = [];
+}
 
+// remove styles if not a matching pair
+
+function notMatching() {
+	setTimeout(function(){
+		clickedCards[0].classList.remove('open', 'show');
+		clickedCards[1].classList.remove('open', 'show');
+		clickedCards = [];
+	}, 500);
+}
+
+function winCheck() {
+	addRating(moves);
+}
