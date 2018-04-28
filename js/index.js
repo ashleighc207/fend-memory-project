@@ -37,18 +37,15 @@ function resetBoard(){
 // check for match/no match when a card is clicked
 // style accordingly
 
-function cardClick(e){
+function cardClick(){
 	this.classList.add('show', 'open');
-	clickedCards.push(e.target);
+	clickedCards.push(event.target);
 	if(clickedCards.length === 2){
 		moves++;
 		if(clickedCards[0].innerHTML === clickedCards[1].innerHTML){
-			matches++;
-			clickedCards[0].classList.remove('open', 'show');
-			clickedCards[0].classList.add('match');
-			e.target.classList.remove('open', 'show');
-			e.target.classList.add('match');
-			clickedCards = [];
+			matching();
+		} else {
+			notMatching();
 		}
 	}
 }
@@ -61,9 +58,28 @@ function newGame() {
 		randomCard.classList.remove('open','show','match');
 		randomCard.addEventListener('click', cardClick);
 	}
+	moves = 0;
+	matches = 0;
 }
 
 newGame();
+
+function matching() {
+	matches++;
+	clickedCards[0].classList.remove('open', 'show');
+	clickedCards[0].classList.add('match');
+	event.target.classList.remove('open', 'show');
+	event.target.classList.add('match');
+	clickedCards = [];
+}
+
+function notMatching() {
+	setTimeout(function(){
+		clickedCards[0].classList.remove('open', 'show');
+		clickedCards[1].classList.remove('open', 'show');
+		clickedCards = [];
+	}, 500);
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
