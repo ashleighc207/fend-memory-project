@@ -35,7 +35,10 @@ function shuffle(array) {
 
 function resetBoard(){
 	let resetBtn = document.querySelector('.restart');
+	moves = 0;
 	resetBtn.addEventListener('click', newGame());
+	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
+
 }
 
 // check for match/no match when a card is clicked
@@ -47,9 +50,13 @@ function cardClick(){
 	if(clickedCards.length === 2){
 		moves++;
 		if(moves === 1){
-			movesCounter.innerHTML = `<span class="moves">${moves} Move</span>`;
+			movesCounter.innerHTML = `<span class="moves green">${moves} Move</span>`;
+		} else if(moves >= 2 && moves <= 25) {
+			movesCounter.innerHTML = `<span class="moves green">${moves} Moves</span>`;
+		} else if(moves >= 26 && moves <= 35){
+			movesCounter.innerHTML = `<span class="moves gold">${moves} Moves</span>`;
 		} else {
-			movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
+			movesCounter.innerHTML = `<span class="moves red">${moves} Moves</span>`;
 		}
 		if(clickedCards[0].innerHTML === clickedCards[1].innerHTML){
 			matching();
