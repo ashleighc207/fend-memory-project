@@ -1,10 +1,12 @@
 /*
  * Create a list that holds all of your cards
  */
-let cards = document.querySelectorAll('.card');
-console.log(cards);
-
-
+let cards = document.getElementsByClassName('card');
+let cardDeck = [...cards];
+let clickedCards = [];
+let gameBoard = document.querySelector('.deck');
+let moves = 0;
+let matches = 0;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -25,8 +27,43 @@ function shuffle(array) {
 
     return array;
 }
+// reset game board when reset icon is clicked
 
-shuffle(cards);
+function resetBoard(){
+	let resetBtn = document.querySelector('.restart');
+	resetBtn.addEventListener('click', newGame());
+}
+
+// check for match/no match when a card is clicked
+// style accordingly
+
+function cardClick(e){
+	this.classList.add('show', 'open');
+	clickedCards.push(e.target);
+	if(clickedCards.length === 2){
+		moves++;
+		if(clickedCards[0].innerHTML === clickedCards[1].innerHTML){
+			matches++;
+			clickedCards[0].classList.remove('open', 'show');
+			clickedCards[0].classList.add('match');
+			e.target.classList.remove('open', 'show');
+			e.target.classList.add('match');
+			clickedCards = [];
+		}
+	}
+}
+
+// reset and randomize cards for new game
+
+function newGame() {
+	const randomCards = shuffle(cards);
+	for(randomCard of randomCards){
+		randomCard.classList.remove('open','show','match');
+		randomCard.addEventListener('click', cardClick);
+	}
+}
+
+newGame();
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -37,3 +74,6 @@ shuffle(cards);
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+
+
