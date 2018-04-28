@@ -120,7 +120,7 @@ h1 {
 }
 .pop-up-modal {
 	width: 600px;
-	height: 600px;
+	height: 620px;
 	position: absolute;
 	z-index: 2;
 	background-color: #262529;
@@ -141,4 +141,64 @@ h1 {
 .text-white {
 	color: white;
 }
+
+@media screen and (max-width: 670px) {
+	.deck {
+		width: 500px;
+		min-height: 550px;
+	}
+	.deck .card {
+		width: 100px;
+		height:  100px;
+	}
+	.deck .card.show {
+		font-size:  40px;
+	}
+	.pop-up-modal {
+	width: 440px;
+	height: 490px;
+}
+}
+@media screen and (max-width: 550px){
+		.deck {
+		width: 450px;
+		min-height: 500px;
+	}
+	.deck .card {
+		width: 80px;
+		height:  80px;
+	}
+	.deck .card.show {
+		font-size:  60px;
+	}
+	.pop-up-modal {
+	width: 390px;
+	height: 440px;
+}
+}
+@media screen and (max-width: 450px){
+		.deck {
+		width: 380px;
+		min-height: 450px;
+		padding: 15px
+	;
+	}
+	.deck .card {
+		width: 80px;
+		height:  80px;
+	}
+	.deck .card.show {
+		font-size:  60px;
+	}
+	.pop-up-modal {
+	width: 350px;
+	height: 410px;
+}
+}
+
+
+
+
+
+
 
