@@ -44,10 +44,11 @@ function shuffle(array) {
 
 function resetBoard(){
 	let resetBtn = document.querySelector('.restart');
+	timerEnd();
 	moves = 0;
 	seconds = 0;
 	minutes = 0;
-	timerEnd();
+	timerContent.innerHTML = `<span class="time">Time: ${minutes}&nbsp;:&nbsp;${seconds}</span>`;
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
 	popUp.classList.add('display-none');
@@ -93,6 +94,8 @@ function newGame() {
 	}
 	moves = 0;
 	matches = 0;
+	seconds = 0;
+	minutes = 0;
 }
 
 newGame();
