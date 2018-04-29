@@ -45,6 +45,8 @@ function shuffle(array) {
 function resetBoard(){
 	let resetBtn = document.querySelector('.restart');
 	moves = 0;
+	seconds = 0;
+	minutes = 0;
 	timerEnd();
 	resetBtn.addEventListener('click', newGame());
 	movesCounter.innerHTML = `<span class="moves">${moves} Moves</span>`;
