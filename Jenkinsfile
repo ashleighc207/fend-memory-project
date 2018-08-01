@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Freakout') {
-      steps {
-        echo 'Asheligh is freaking out!'
-      }
-    }
     stage('Check for README.md') {
       steps {
         fileExists 'README.md'
